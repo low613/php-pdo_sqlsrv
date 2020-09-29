@@ -1,0 +1,12 @@
+Source: phpX.Y-pdosqlsrv
+Section: non-free/web
+Priority: optional
+Maintainer: Alaress Support <support@schoolbox.com.au>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://www.schoolbox.com.au
+
+Package: phpX.Y-pdosqlsrv
+Architecture: all
+Depends: ${misc:Depends}
+Description: PDO_SQLSRV modules for phpX.Y

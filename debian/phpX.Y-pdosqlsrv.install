@@ -1,0 +1,2 @@
+pdo_sqlsrv.so /usr/lib/php/YYYYMMDD
+pdo_sqlsrv.ini /etc/php/X.Y/mods-available

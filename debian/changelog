@@ -1,0 +1,5 @@
+phpX.Y-pdosqlsrv (PDO_SQLSRVVER-1+repo.schoolbox.com.au~DISTROCODENAME+5) stable; urgency=low
+
+  * php-pdosqlsrv for PHPX.Y
+
+ -- vagrant <vagrant@ubuntubuild-schoolbox>  Fri, 28 Mar 2014 14:58:46 +1100

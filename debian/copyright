@@ -1,0 +1,8 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Name: schoolbox
+Source: http://www.schoolbox.com.au
+
+Files: *
+Copyright: 2014 Alaress Pty. Ltd.
+License: Apache 2.0
+ Contact Alaress on support@alaress.com.au for more info.
