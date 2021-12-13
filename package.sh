@@ -15,9 +15,9 @@ then
 	exit 1;
 fi
 
-if [ -f php-pdo_sqlsrv/version ]
+if [ -f php-pdo-sqlsrv/version ]
 then
-	pdosqlsrvver=`cat php-pdo_sqlsrv/version`;
+	pdosqlsrvver=`cat php-pdo-sqlsrv/version`;
 	if [ "$pdosqlsrvver" != "" ];
 	then
 		echo "Building php-pdo_sqlsrv version: $pdosqlsrvver";
@@ -49,7 +49,7 @@ echo "Zend API: $zendapi";
 mkdir php$phpver-pdosqlsrv-$pdosqlsrvver;
 
 cp -v "/usr/lib/php/$zendapi/pdo_sqlsrv.so"  "php$phpver-pdosqlsrv-$pdosqlsrvver"/;
-cp -v "$initialdir"/php-pdo_sqlsrv-package/extra/* "php$phpver-pdosqlsrv-$pdosqlsrvver"/;
+cp -v "$initialdir"/php-pdo-sqlsrv-package/extra/* "php$phpver-pdosqlsrv-$pdosqlsrvver"/;
 
 tar czvf "php$phpver-pdosqlsrv_$pdosqlsrvver.orig.tar.gz" "php$phpver-pdosqlsrv-$pdosqlsrvver";
 
