@@ -53,7 +53,7 @@ cp -v "$initialdir"/php-pdo-sqlsrv-package/extra/* "php$phpver-pdosqlsrv-$pdosql
 
 tar czvf "php$phpver-pdosqlsrv_$pdosqlsrvver.orig.tar.gz" "php$phpver-pdosqlsrv-$pdosqlsrvver";
 
-cp -vfR "$initialdir/php-pdo_sqlsrv-package/debian" "php$phpver-pdosqlsrv-$pdosqlsrvver"/;
+cp -vfR "$initialdir/php-pdo-sqlsrv-package/debian" "php$phpver-pdosqlsrv-$pdosqlsrvver"/;
 
 cd php$phpver-pdosqlsrv-$pdosqlsrvver;
 
