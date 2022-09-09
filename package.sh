@@ -53,6 +53,11 @@ fi
 
 
 echo "Installing dependencies";
+# the bionic base image doesn't have SB upstream
+if [ "$distrocodename" = "bionic" ]; then
+	curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -;
+	curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list;
+fi
 apt-get update;
 DEBIAN_FRONTEND=noninteractive ACCEPT_EULA=Y apt-get -y install msodbcsql17 mssql-tools unixodbc-dev;
 
