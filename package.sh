@@ -1,4 +1,25 @@
 #!/bin/bash
+
+readonly ARG_PASSPHRASE="passphrase"
+declare passphrase
+
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+	--"$ARG_PASSPHRASE")
+	passphrase="$2"
+	shift; shift;
+	;;
+	*)
+      echo "Unknown argument: $1" >&2
+      exit 1
+      ;;
+    esac
+done
+if [[ -z $passphrase ]]; then
+    echo "You must declare the passphrase --$ARG_PASSPHRASE flag" >&2
+    exit 1
+  fi
 initialdir=`pwd`;
 
 echo "Build and package php-pdo_sqlsrv";
@@ -9,9 +30,9 @@ echo "Creating artifact directory";
 mkdir -vp $initialdir/package-artifacts;
 
 distrocodename=`cat /etc/lsb-release | grep DISTRIB_CODENAME | cut -d'=' -f2`;
-if [ "$distrocodename" != "bionic" ];
+if [ "$distrocodename" != "bionic" ] && [ "$distrocodename" != "jammy" ];
 then
-	echo "Only Ubuntu 18.04 (bionic) is supported)"
+	echo "Only Ubuntu 18.04 (bionic) or 22.04 (jammy) is supported)"
 	exit 1;
 fi
 
@@ -32,9 +53,7 @@ fi
 
 
 echo "Installing dependencies";
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -;
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list;
-apt update;
+apt-get update;
 DEBIAN_FRONTEND=noninteractive ACCEPT_EULA=Y apt-get -y install msodbcsql17 mssql-tools unixodbc-dev;
 
 echo "PECL Build";
@@ -86,3 +105,5 @@ then
 fi
 
 cp -v php$phpver-pdo_sqlsrv-package.tar.gz $initialdir/package-artifacts/;
+
+./php-pdo-sqlsrv-package/publish.sh --passphrase "$passphrase" --package "$(realpath package-artifacts/*deb)" --local-repo "ubuntu-$distrocodename"

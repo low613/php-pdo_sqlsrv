@@ -1,4 +1,4 @@
-phpX.Y-pdosqlsrv (PDO_SQLSRVVER-1+repo.schoolbox.com.au~DISTROCODENAME+5) stable; urgency=low
+phpX.Y-pdosqlsrv (PDO_SQLSRVVER-1+schoolbox~DISTROCODENAME+5) stable; urgency=low
 
   * php-pdosqlsrv for PHPX.Y
 
